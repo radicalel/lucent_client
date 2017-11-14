@@ -35,8 +35,9 @@ class Client
         return $lucy;
     }
 
-    public function query($contentType){
+    public function query($contentType,$withLinks = false){
         $this->query->add('contentType',$contentType);
+        if($withLinks)$this->query->add('withLinks',$withLinks);
         return $this;
     }
 
