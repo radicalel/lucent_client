@@ -1,0 +1,28 @@
+{
+    "name": "radicalel/lucent_client",
+    "type": "library",
+    "description": "A PHP clientfor lucentcms.com",
+    "keywords": ["lucentcms","cms"],
+    "authors": [
+        {
+            "name": "Alex Lingris",
+            "email": "alexlingris@gmail.com ",
+            "homepage": "https://alexlingris.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Lucy\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
+}
