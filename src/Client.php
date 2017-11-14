@@ -8,8 +8,8 @@ class Client
 
     public static function setConfig(array $options = []){
         $default = [
-            'previewUrl' => 'http://ps2publicv2.lexx.hogar.radicalel.com/api/v2/', 
-            'liveUrl' => 'http://ps2publicv2.lexx.hogar.radicalel.com/api/v2/', 
+            'previewUrl' => 'https://preview.lucentcms.com/api/v2/', 
+            'liveUrl' => 'https://live.lucentcms.com/api/v2/', 
             'deployment' => 'preview', 
             'apiKey' => null, 
             'locale' => null, 
