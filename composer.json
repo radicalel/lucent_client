@@ -3,7 +3,6 @@
     "type": "library",
     "description": "A PHP clientfor lucentcms.com",
     "keywords": ["lucentcms","cms"],
-    "version": "0.1.0",
     "authors": [
         {
             "name": "Alex Lingris",
