@@ -64,7 +64,7 @@ class Client
     }
 
     public function where($key,$op,$value = null){
-        $this->query->where($key,$op,$value = null);
+        $this->query->where($key,$op,$value);
         return $this;
     }
 
