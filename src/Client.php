@@ -41,6 +41,14 @@ class Client
         return $this;
     }
 
+    public function group($group,$withLinks = false){
+        $this->query->add('group',$group);
+        if($withLinks)$this->query->add('withLinks',$withLinks);
+        $sort = 'groupSort.'.$group;
+        $this->query->orderBy($sort,'asc');
+        return $this;
+    }
+
     public function find($contentType,$id){
       if (is_array($id)) {
         $id = implode(',',$id);
