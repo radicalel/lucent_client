@@ -41,12 +41,15 @@ class Client
         return $this;
     }
 
-    public function group($group,$withLinks = false){
+    public function group($group,$withLinks = false,$limit,$offset){
         $this->query->add('group',$group);
         if($withLinks)$this->query->add('withLinks',$withLinks);
         $sort = 'groupSort.'.$group;
         $this->query->orderBy($sort,'asc');
-        return $this;
+        $endpoint = static::getGroupEndpoint().$group;
+        return  $this->get($endpoint);
+
+
     }
 
     public function find($contentType,$id){
@@ -98,6 +101,16 @@ class Client
             return static::getConfig('previewUrl').static::getConfig('channel').'/documents/';
         }elseif(static::getConfig('deployment') == 'live'){
             return static::getConfig('liveUrl').static::getConfig('channel').'/documents/';
+        } else{
+            return false;
+        }   
+    }
+    public static function getGroupEndpoint(){
+   
+        if(static::getConfig('deployment') == 'preview'){
+            return static::getConfig('previewUrl').static::getConfig('channel').'/group/';
+        }elseif(static::getConfig('deployment') == 'live'){
+            return static::getConfig('liveUrl').static::getConfig('channel').'/group/';
         } else{
             return false;
         }   
