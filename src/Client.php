@@ -41,15 +41,16 @@ class Client
         return $this;
     }
 
-    public function group($group,$withLinks = false,$limit,$offset){
+    public function group($group,$withLinks = false,int $limit = 20, int $skip = 0){
         $this->query->add('group',$group);
         if($withLinks)$this->query->add('withLinks',$withLinks);
         $sort = 'groupSort.'.$group;
-        $this->query->orderBy($sort,'asc');
+        $this->orderBy($sort,'asc');
+        $this->limit($limit);
+        $this->skip($skip);
+
         $endpoint = static::getGroupEndpoint().$group;
         return  $this->get($endpoint);
-
-
     }
 
     public function find($contentType,$id){
@@ -84,12 +85,12 @@ class Client
         return $this;
     }
 
-    public function limit($num){
+    public function limit(int $num){
         $this->query->limit($num);
         return $this;
     }
 
-    public function skip($num){
+    public function skip(int $num){
         $this->query->skip($num);
         return $this;
     }
